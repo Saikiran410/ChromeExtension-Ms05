@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Extention",
+    "version": "2.0",
+    "description" :"This is Simple Extention that Dispalys Name",
+    "author":"Saikiran",
+    
+    
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title":"Chrome Extension",
+        "default_popup": "popup.html"
+        },
+    "permissions":[
+        "activeTab" ,
+        "tabs"],
+      
+    "background": {
+        "scripts": ["background.js"]
+         },
+
+    "content_scripts": [
+    {
+        "matches": [
+            "<all_urls>"
+
+        ],
+        "js": ["content.js"]
+    }
+]
+}
