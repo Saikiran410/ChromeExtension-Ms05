@@ -1,29 +1,18 @@
-
+//This runs in the background
+console.log("Background is Going On..!");
+//by clicking on button get tab details
+chrome.browserAction.onClicked.addListener(buttonClicked);
+function buttonClicked(tab){
+  console.log(tab);
+}
+//creates a new Facebook Tab
 chrome.tabs.create({url:'http://facebook.com'},callback);
+//callback function
 function callback(data){
     console.log(data);
   }
-  chrome.runtime.onMessage.addListener(function(response,sender,sendResponse){
-    alert(response);
-});
-/*
-  // Called when the user clicks on the browser action.
-chrome.browserAction.onClicked.addListener(function(tab) {
-  // Send a message to the active tab
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    var activeTab = tabs[0];
-    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-  });
-});
 
-// This block is new!
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if( request.message === "open_new_tab" ) {
-      chrome.tabs.create({"url": request.url});
-    }
-  }
-);*/
+
 
 
 
